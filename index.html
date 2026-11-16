@@ -233,7 +233,7 @@
     </section>
 
     <nav class="links" aria-label="Links oficiais">
-      <a class="link" href="https://www.instagram.com/tlbm.3d/" target="_blank" rel="noopener noreferrer">
+      <a class="link" href="https://www.instagram.com/tlbm.3d/" target="_blank" rel="noopener noreferrer" onclick="return openExternal(event, this.href)">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="3" y="3" width="18" height="18" rx="5"></rect>
@@ -248,7 +248,7 @@
         <span class="arrow" aria-hidden="true">›</span>
       </a>
 
-      <a class="link" href="https://tlbm3d.github.io/catalog" target="_blank" rel="noopener noreferrer">
+      <a class="link" href="https://tlbm3d.github.io/catalog" target="_blank" rel="noopener noreferrer" onclick="return openExternal(event, this.href)">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 8.5 12 4l9 4.5v10L12 23l-9-4.5z"></path>
@@ -274,7 +274,18 @@
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+function openExternal(event, url) {
+  event.preventDefault();
+
+  const newTab = window.open(url, "_blank");
+
+  if (!newTab) {
+    window.location.href = url;
+  }
+
+  return false;
+}
+</script>
+  
 </body>
 </html>
